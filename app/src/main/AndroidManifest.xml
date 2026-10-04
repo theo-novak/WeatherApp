@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The manifest: Android's table of contents for the app. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Open-Meteo is a plain HTTPS call; modern Android grants this automatically. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Location: requested at first launch (runtime permission). Used only to
+         find the city whose weather we show — network/Wi-Fi accuracy, not GPS. -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:label="@string/app_name"
+        android:icon="@mipmap/ic_launcher"
+        android:theme="@style/Theme.SimpleWeather">
+
+        <activity android:name=".MainActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

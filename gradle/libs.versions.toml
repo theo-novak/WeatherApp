@@ -1,0 +1,17 @@
+[versions]
+agp = "8.13.0"          # Android Gradle Plugin — the APK packager (Sept 2025 stable)
+kotlin = "2.2.20"        # Kotlin compiler
+coroutines = "1.10.2"    # kotlinx.coroutines — background fetching
+
+[libraries]
+activity-compose = { group = "androidx.activity", name = "activity-compose", version = "1.11.0" }
+compose-bom = { group = "androidx.compose", name = "compose-bom", version = "2025.06.00" }  # pins Compose 1.8.2 — matches compileSdk 36 / AGP 8.13
+compose-ui = { group = "androidx.compose.ui", name = "ui" }
+compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+# Since Kotlin 2.x, the Compose compiler ships as its own Gradle plugin:
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
